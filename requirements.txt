@@ -32,7 +32,6 @@ pycparser==2.22
 pydantic==2.10.6
 pydantic_core==2.27.2
 Pygments==2.19.1
-PyMuPDF==1.25.3
 pypdfium2==4.30.1
 python-calamine==0.3.1
 python-dateutil==2.9.0.post0
