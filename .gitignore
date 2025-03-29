@@ -1,0 +1,15 @@
+uploads/
+.venv/
+*.xls
+*.xlsx
+*.xlsb
+*.pdf
+*.pyc
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
