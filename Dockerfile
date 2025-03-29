@@ -1,6 +1,9 @@
 # 
 FROM python:3.12-alpine
 
+# Install build tools and dependencies
+RUN apk add --no-cache gcc musl-dev build-base
+
 # 
 WORKDIR /code
 
