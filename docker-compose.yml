@@ -1,0 +1,6 @@
+version: '3.9'
+services:
+  fastapi:
+    image: ghcr.io/fnxl/excel-automation:latest
+    ports:
+      - "8000:8000"
