@@ -40,6 +40,7 @@ def get_customers():
             {"label": "Kohl's Towel", "value": "kohls-towel"},
             {"label": "Kohl's Rugs PDF", "value": "kohls-rugs-pdf"},
             {"label": "Kohl's Bedsheet", "value": "kohls-bedsheet"},
+            {"label": "Kohl's PO Mismatch", "value": "kohls-po-mismatch"},
             {"label": "Kohl's PO Summary", "value": "kohls-po-summary"},
             {"label": "Walmart Bedsheet", "value": "walmart-bedsheet"},
             {"label": "Argos", "value": "argos"},
@@ -76,7 +77,11 @@ async def generate_macro(
 ):
     start_time = time.time()
     filename, zip_buffer = await create_macro(
-        customer=customer, mastersheet=mastersheet.file, po_files=files, backend=backend
+        customer=customer,
+        mastersheet=mastersheet.file,
+        po_files=files,
+        backend=backend,
+        filename=mastersheet.filename,
     )
     print(f"Got final zip buffer: {time.time() - start_time} seconds")
 

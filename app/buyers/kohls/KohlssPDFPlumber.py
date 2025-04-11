@@ -101,8 +101,9 @@ def extract_table_rows_pdfplumber(pdf_path: str, page_range: tuple = None):
                     "min_words_horizontal": 1,
                 }
             )
-            for row in table:
-                data.append(row)
+            if table:
+                for row in table:
+                    data.append(row)
     data = remove_duplicates(data)
     data = remove_none(data)
     data = clean_data(data)
