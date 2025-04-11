@@ -85,7 +85,7 @@ class KohlsPOMismatch:
         po_sheet = extract_table_rows(pdf_path=po_file)
         return po_sheet
 
-    def find_line_item(po_sheet, upc):
+    def find_line_item(self, po_sheet, upc):
         for row in po_sheet:
             if row[-1] == upc:
                 return row
