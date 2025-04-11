@@ -14,7 +14,7 @@ class Mastersheet:
         self.macro_wb = load_workbook(filename=macro_file_path, keep_vba=True)
         self.macro_ws = self.macro_wb.active
 
-        self.mastersheet_ws = load_workbook(filename=mastersheet).active
+        self.mastersheet_ws = load_workbook(filename=mastersheet).worksheets[0]
         self._parse_mastersheet(self.mastersheet_ws)
         self.mastersheet_dict = self._create_mastersheet_dict(self.mastersheet_ws)
         self.mastersheet_header = [cell.value for cell in self.mastersheet_ws[1]]
