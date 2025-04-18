@@ -53,6 +53,7 @@ def extract_metadata_pdfplumber(pdf_path: str, page_range: tuple = None):
         "port of shipment": r"FOB -\s*(\w+)",
         "channel type": r"Order Indicator",
         "ship window": r"Shipment Window.*\n.*(\d{4}-\d{2}-\d{2} / \d{4}-\d{2}-\d{2})",
+        "notify": r"\bLI\s*&\s*FUNG\b",
     }
     meta_data = {}
     with pdfplumber.open(pdf_path) as pdf:
@@ -80,6 +81,8 @@ def extract_metadata_pdfplumber(pdf_path: str, page_range: tuple = None):
                             meta_data[column] = "ECOM"
                     elif column == "po":
                         meta_data[column] = int(match.group(1))
+                    elif column == "notify":
+                        meta_data[column] = True
                 else:
                     if column == "channel type":
                         meta_data[column] = "RETAIL"
