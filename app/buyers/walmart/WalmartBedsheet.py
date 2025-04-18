@@ -144,8 +144,8 @@ class WalmartBedsheet:
                 1014,  # payment term
                 "",  # inco term
                 "MUNDRA",  # inco term 2
-                "",  # order reason
                 100003,  # end customer
+                "YES", # E2E clarity
                 "RETAIL",  # channel type
                 "NIL",  # sub channel type
                 "REPLENISHMENT",  # order type
@@ -162,7 +162,10 @@ class WalmartBedsheet:
                 pis,  # PIS
                 "",  # PO avail date
                 "KAVITA SUNDAKAR",  # A/C holder
-                "",  # notify
+                "", # Currency
+                "2% commission to WUSA",  # notify
+                "", # PO FILE NAME
+                "", # PO FILE FORMAT
             ]
             self.macro_ws.append(macro_row)
 
