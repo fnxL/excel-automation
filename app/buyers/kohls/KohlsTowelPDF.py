@@ -15,6 +15,10 @@ from app.utils.format import (
 
 class KohlsTowelPDF(Mastersheet):
     MACRO_FILE_PATH = "macro/kohls-towel.xlsm"
+    NOTIFY_ADDRESS = (
+        "Li & Fung (Trading) Limited\n7/F, HK SPINNERS INDUSTRIAL BUILDING\nPhase I & II,\n800 CHEUNG SHA WAN ROAD,\nKOWLOON, HONGKONG\nAir8 Pte Ltd,\n3 Kallang Junction\n#05-02 Singapore 339266\n 2% commission to WUSA",
+    )
+
     MASTER_SHEET_COLS = {
         "program name": None,
         "upc": None,
@@ -67,6 +71,10 @@ class KohlsTowelPDF(Mastersheet):
         )
         sub_channel_type = "PURE PLAY ECOM" if channel_type == "ECOM" else "NIL"
         row_data = {}
+
+        notify = (
+            self.NOTIFY_ADDRESS[0] if "notify" in metadata else "2% commission to WUSA"
+        )
         for row in po_sheet:
             _, _, _, qty, _, _, upc = row
             mastersheet_row = self.mastersheet_dict.get(
@@ -148,8 +156,8 @@ class KohlsTowelPDF(Mastersheet):
                 upc,  # customer material
                 pis_value,  # PIS
                 "",  # PO AVAIL DATE
-                "ANJALI VISHARIA",
-                "Li & Fung (Trading) Limited\n7/F, HK SPINNERS INDUSTRIAL BUILDING\nPhase I & II,\n800 CHEUNG SHA WAN ROAD,\nKOWLOON, HONGKONG\nAir8 Pte Ltd,\n3 Kallang Junction\n#05-02 Singapore 339266",
+                "Saluja Tirkey",
+                notify,
             ]
             row_data[sales_unit].append(macro_row)
         # loop through the row_data dictionary and append the rows to the macro worksheet
