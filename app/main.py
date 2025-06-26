@@ -11,8 +11,8 @@ origins = [
     "http://localhost:5173",
     "http://localhost:5173/",
     "http://localhost:4173",
-    "https://automate-excel.pages.dev",
-    "https://xl.fnxl.live",
+    "https://excel-automation.pages.dev",
+    "https://xl.ajaykanki.live",
 ]
 
 app = FastAPI()
